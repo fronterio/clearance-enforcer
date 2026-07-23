@@ -1,5 +1,7 @@
 # Clearance Enforcer
 
+[![CI](https://github.com/fronterio/clearance-enforcer/actions/workflows/ci.yml/badge.svg)](https://github.com/fronterio/clearance-enforcer/actions/workflows/ci.yml)
+
 Open-source enforcement plugins for the **[Fronterio](https://fronterio.com) Model Clearance API**.
 
 > **Fronterio decides — your runtime enforces.**
