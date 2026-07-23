@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  python:
+    name: fronterio-litellm (pytest)
+    runs-on: ubuntu-latest
+    defaults:
+      run: { working-directory: packages/fronterio-litellm }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -e ".[dev]"
+      - run: pytest -q
+
+  node:
+    name: openclaw-clearance (vitest + tsc)
+    runs-on: ubuntu-latest
+    defaults:
+      run: { working-directory: packages/openclaw-clearance }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm install
+      - run: npx tsc -p tsconfig.json --noEmit
+      - run: npx vitest run
+
+  n8n:
+    name: n8n node (tsc)
+    runs-on: ubuntu-latest
+    defaults:
+      run: { working-directory: packages/n8n-nodes-fronterio-clearance }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npm install
+      - run: npx tsc -p tsconfig.json --noEmit

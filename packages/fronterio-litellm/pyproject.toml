@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fronterio-litellm"
+version = "0.1.0"
+description = "Fronterio Clearance Enforcer for LiteLLM — enforce your Model Clearance policy in your own runtime. Fronterio decides; your runtime enforces."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{ name = "Fronterio", email = "noreply@fronterio.com" }]
+keywords = ["litellm", "gdpr", "ai-governance", "model-routing", "fronterio"]
+dependencies = ["httpx>=0.24"]
+
+[project.optional-dependencies]
+verify = ["cryptography>=41"]
+dev = ["pytest>=7", "cryptography>=41"]
+
+[project.urls]
+Homepage = "https://github.com/fronterio/clearance-enforcer"
+Documentation = "https://github.com/fronterio/clearance-enforcer/tree/main/packages/fronterio-litellm"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fronterio_clearance"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

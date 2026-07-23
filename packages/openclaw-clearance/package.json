@@ -1,0 +1,26 @@
+{
+  "name": "openclaw-clearance",
+  "version": "0.1.0",
+  "description": "Fronterio Clearance Enforcer for OpenClaw and generic Node runtimes — enforce your Model Clearance policy locally. Fronterio decides; your runtime enforces.",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist", "README.md"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fronterio/clearance-enforcer.git",
+    "directory": "packages/openclaw-clearance"
+  },
+  "keywords": ["openclaw", "gdpr", "ai-governance", "model-routing", "fronterio"],
+  "engines": { "node": ">=18" },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  }
+}
