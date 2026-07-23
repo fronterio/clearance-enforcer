@@ -1,0 +1,31 @@
+{
+  "name": "n8n-nodes-fronterio-clearance",
+  "version": "0.1.0",
+  "description": "n8n community node for the Fronterio Model Clearance API — green/yellow/red policy checks before your workflow calls a model. Fronterio decides; your workflow enforces.",
+  "license": "MIT",
+  "keywords": ["n8n-community-node-package", "gdpr", "ai-governance", "fronterio"],
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fronterio/clearance-enforcer.git",
+    "directory": "packages/n8n-nodes-fronterio-clearance"
+  },
+  "files": ["dist"],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": ["dist/credentials/FronterioApi.credentials.js"],
+    "nodes": ["dist/nodes/ModelClearance/ModelClearance.node.js"]
+  },
+  "engines": { "node": ">=18" },
+  "devDependencies": {
+    "n8n-workflow": "^1.48.0",
+    "typescript": "^5.5.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
